@@ -24,6 +24,10 @@ class Perfil extends Component {
             title="👈"
             onPress={() => this.props.navigation.goBack()}
           />
+          <Button
+            title="🎮"
+            onPress={() =>  this.props.navigation.navigate('JugandoMenu')}
+          />
         </View>
       );
     }

@@ -3,7 +3,7 @@ import { StyleSheet,Text, TextInput, View  } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import HomeClase from './src/screens/home';
 import PerfilClase from './src/screens/perfil';
-
+import JugandoClase from './src/screens/jugando';
 
 class App extends React.Component {
   constructor(props) {
@@ -30,7 +30,8 @@ class App extends React.Component {
 const AppNavigator=  createStackNavigator(
   {
     HomeMenu: HomeClase,
-    PerfilMenu:PerfilClase
+    PerfilMenu:PerfilClase,
+    JugandoMenu:JugandoClase
   },
   {
     initialRouteName: 'PerfilMenu',
