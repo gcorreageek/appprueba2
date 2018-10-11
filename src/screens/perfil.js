@@ -11,8 +11,19 @@ class Perfil extends Component {
     render() {
       return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text>Mi Perfil Screen</Text> 
-          <Button title="Presioname" onPress={showAlert} > </Button>
+          <Text>Mi Perfil</Text> 
+          <Button
+            title="👱🔄"
+            onPress={() => this.props.navigation.push('PerfilMenu')}
+          />
+          <Button
+            title="🏠"
+            onPress={() => this.props.navigation.navigate('HomeMenu')}
+          />
+          <Button
+            title="👈"
+            onPress={() => this.props.navigation.goBack()}
+          />
         </View>
       );
     }

@@ -33,7 +33,7 @@ const AppNavigator=  createStackNavigator(
     PerfilMenu:PerfilClase
   },
   {
-    initialRouteName: 'HomeMenu',
+    initialRouteName: 'PerfilMenu',
   }
 );
 
