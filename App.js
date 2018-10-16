@@ -1,48 +1,63 @@
 import React from 'react';
-import { StyleSheet,Text, TextInput, View  } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
-import HomeClase from './src/screens/home';
-import PerfilClase from './src/screens/perfil';
-import JugandoClase from './src/screens/jugando';
+import { Asset, AppLoading, Font } from 'expo';
+import { Platform,StyleSheet,Text, TextInput, View  } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { loadSavedTalksAsync } from './src/utils/storage';
+import { createStackNavigator,SafeAreaView } from 'react-navigation';
+
+if (Platform.OS === 'android') {
+  SafeAreaView.setStatusBarHeight(0);
+}
+import Navigation from './src/Navigation';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {text: ''};
+  state = {
+    fontLoaded: false,
+  };
+  _loadResourcesAsync = () => {
+    console.log('prueba de un console');
+    return Promise.all([
+      this._loadAssetsAsync(),
+      this._loadDataAsync(),
+    ])
   }
+  _loadDataAsync = () => {
+    return loadSavedTalksAsync();
+  }
+  _loadAssetsAsync = async () => {
+    return Promise.all([
+      Font.loadAsync({
+        'open-sans-bold': require('./src/assets/OpenSans-Bold.ttf'),
+        'open-sans': require('./src/assets/OpenSans-Regular.ttf'),
+        'open-sans-semibold': require('./src/assets/OpenSans-SemiBold.ttf'),
+        ...Ionicons.font,
+      }),
+      Asset.fromModule(require('./src/assets/logo.png')).downloadAsync(),
+      Asset.fromModule(
+        require('react-navigation/src/views/assets/back-icon.png')
+      ).downloadAsync(),
+    ]);
+  };
 
   render() {
-    return (
-      <View style={{padding: 10}}>
-        <TextInput
-          style={{height: 40}}
-          placeholder="Type here to translate!"
-          onChangeText={(text) => this.setState({text})}
+    if (!this.state.fontLoaded) {
+      return (
+        <AppLoading
+          startAsync={this._loadResourcesAsync}
+          onError={console.error}
+          onFinish={() => {
+            this.setState({ fontLoaded: true });
+          }}
         />
-        <Text style={{padding: 10, fontSize: 42}}>
-          {this.state.text.split(' ').map((word) => word && '🍕').join(' ')}
-        </Text>
+      );
+    }
+
+    return (
+      <View style={{ flex: 1 }}>
+        <Navigation />
       </View>
     );
   }
 }
 
-const AppNavigator=  createStackNavigator(
-  {
-    HomeMenu: HomeClase,
-    PerfilMenu:PerfilClase,
-    JugandoMenu:JugandoClase
-  },
-  {
-    initialRouteName: 'PerfilMenu',
-  }
-);
-
-export default AppNavigator;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});
+export default App;
