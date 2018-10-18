@@ -45,10 +45,50 @@ const DefaultStackConfig = {
   },
 };
 
-const SponsorNavigation = StackNavigator(
+const MetadataSimpleNavigation = StackNavigator(
   {
     SponsorList: {
-      screen: Screens.Sponsors,
+      screen: Screens.MetadataSimple,
+    },
+  },
+  DefaultStackConfig
+);
+const MetadataDetalladaNavigation = StackNavigator(
+  {
+    SponsorList: {
+      screen: Screens.MetadataDetallada,
+    },
+  },
+  DefaultStackConfig
+);
+const CargaDocumentoNavigation = StackNavigator(
+  {
+    SponsorList: {
+      screen: Screens.CargaDocumento,
+    },
+  },
+  DefaultStackConfig
+);
+const ExpedienteDigitalNavigation = StackNavigator(
+  {
+    SponsorList: {
+      screen: Screens.ExpedienteDigital,
+    },
+  },
+  DefaultStackConfig
+);
+const DatosEstadisticosNavigation = StackNavigator(
+  {
+    SponsorList: {
+      screen: Screens.DatosEstadisticos,
+    },
+  },
+  DefaultStackConfig
+);
+const PerfilUsuarioNavigation = StackNavigator(
+  {
+    SponsorList: {
+      screen: Screens.PerfilUsuario,
     },
   },
   DefaultStackConfig
@@ -56,7 +96,12 @@ const SponsorNavigation = StackNavigator(
 
 const DrawerRouteConfig = {
   Home: { screen: Screens.Home },
-  Sponsors: { screen: SponsorNavigation },
+  MetadataSimple: { screen: MetadataSimpleNavigation },
+  MetadataDetallada: { screen: MetadataDetalladaNavigation },
+  CargaDocumento: { screen: CargaDocumentoNavigation },
+  ExpedienteDigital: { screen: ExpedienteDigitalNavigation },
+  DatosEstadisticos: { screen: DatosEstadisticosNavigation },
+  PerfilUsuario: { screen: PerfilUsuarioNavigation },
 };
 
 const DrawerRouter = TabRouter(DrawerRouteConfig);
@@ -269,7 +314,13 @@ class DrawerView extends React.Component {
           {/* make sure the buttons here are in the same order as in route config */}
           {this._renderButtons([
             { route: 'Home', title: 'Inicio' },
-            { route: 'Sponsors', title: 'Esponsors' },
+            { route: 'MetadataSimple', title: 'M.Simple' },
+            { route: 'MetadataDetallada', title: 'M.Detallada' },
+            { route: 'CargaDocumento', title: 'Carga Documento' },
+            { route: 'ExpedienteDigital', title: 'Expediente Digital' },
+            { route: 'DatosEstadisticos', title: 'Datos Estadisticos' },
+            { route: 'PerfilUsuario', title: 'Perfil Usuario' },
+
           ])}
         </View>
       </View>
