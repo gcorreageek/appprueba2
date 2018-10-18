@@ -9,9 +9,9 @@ import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import _ from 'lodash';
 
 
-export default class Sponsors extends React.Component {
+export default class CargaDocumento extends React.Component {
   static navigationOptions = {
-    title: 'Esponsores',
+    title: 'Carga de Documento',
     headerStyle: { backgroundColor: Colors.azul },
     headerTintColor: 'white',
     headerLeft: <MenuButton />,
