@@ -2,11 +2,11 @@ import React from 'react';
 import { Image, Platform, StyleSheet, View } from 'react-native';
 import moment from 'moment-timezone';
 
-import { BoldText, RegularText, SemiBoldText } from './StyledText';
-import TalkCard from './TalkCard';
-import { Colors, FontSizes } from '../constants';
-import { findRandomTalk, findNextTalksAfterDate } from '../data';
-import { conferenceHasEnded } from '../utils';
+import { BoldText, RegularText, SemiBoldText } from '../StyledText';
+import TalkCard from '../TalkCard';
+import { Colors, FontSizes } from '../../constants';
+import { findRandomTalk, findNextTalksAfterDate } from '../../data';
+import { conferenceHasEnded } from '../../utils';
 
 export default class TalksUpNext extends React.Component {
   constructor(props) {

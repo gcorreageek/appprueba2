@@ -23,7 +23,8 @@ export const Layout = {
 };
 
 export const Colors = {
-  green: '#187f65',
+  // green: '#187f65',
+  azul: '#4682B4',
   faint: '#7a7a7a',
 };
 

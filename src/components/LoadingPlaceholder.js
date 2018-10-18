@@ -24,7 +24,7 @@ export default class LoadingPlaceholder extends React.Component {
           style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
         >
           <ActivityIndicator
-            color={Platform.OS === 'android' ? Colors.green : '#888'}
+            color={Platform.OS === 'android' ? Colors.azul : '#888'}
             size="large"
           />
         </View>

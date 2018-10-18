@@ -19,7 +19,7 @@ export default class NavigationBar extends React.Component {
           style={[
             StyleSheet.absoluteFill,
             {
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.azul,
               opacity: this.props.animatedBackgroundOpacity,
             },
           ]}

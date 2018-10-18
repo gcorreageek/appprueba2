@@ -180,7 +180,7 @@ class DrawerView extends React.Component {
           edgeWidth={60}
           drawerPosition={DrawerComponent.positions.Left}
           drawerType="front"
-          drawerBackgroundColor="#333333"
+          drawerBackgroundColor="white"
           renderNavigationView={this._renderNavigationView}
         >
           <View style={{ flex: 1 }} key="container">
@@ -210,7 +210,7 @@ class DrawerView extends React.Component {
                 right: 0,
                 height:
                   Platform.OS === 'android' ? Constants.statusBarHeight : 0,
-                backgroundColor: Colors.green,
+                backgroundColor: Colors.azul,
               }}
             />
           </View>
@@ -225,18 +225,24 @@ class DrawerView extends React.Component {
     return (
       <View style={styles.drawerContainer}>
         <View style={styles.drawerHeader}>
-          <Image
+          {/* <Image
             source={require('./assets/hero.png')}
             style={{
               height: 140 + Layout.notchHeight,
               width: DRAWER_WIDTH,
               resizeMode: 'cover',
             }}
+          /> */}
+          <View
+            style={{
+              height: 140 + Layout.notchHeight,
+              width: DRAWER_WIDTH,
+            }}
           />
           <View
             style={[
               StyleSheet.absoluteFill,
-              { backgroundColor: 'rgba(23, 127, 100, 0.57)' },
+              { backgroundColor: 'rgba(70, 130, 180, 0.57)' },
             ]}
           />
           <View
@@ -262,11 +268,8 @@ class DrawerView extends React.Component {
         <View style={styles.drawerButtons}>
           {/* make sure the buttons here are in the same order as in route config */}
           {this._renderButtons([
-            { route: 'Home', title: 'Home' },
-            { route: 'Schedule', title: 'Schedule' },
-            { route: 'Speakers', title: 'Speakers' },
-            { route: 'Crew', title: 'Crew' },
-            { route: 'Sponsors', title: 'Sponsors' },
+            { route: 'Home', title: 'Inicio' },
+            { route: 'Sponsors', title: 'Esponsors' },
           ])}
         </View>
       </View>
@@ -319,8 +322,8 @@ class DrawerButton extends React.Component {
         onPress={this.props.onPress}
         style={{
           backgroundColor: this.props.selected
-            ? 'rgba(255,255,255,0.1)'
-            : '#333333',
+            ? 'rgba(90,90,90,0.1)'
+            : 'white',
         }}
       >
         <View
@@ -332,7 +335,7 @@ class DrawerButton extends React.Component {
           }}
         >
           <SemiBoldText style={styles.drawerButtonText}>
-            {this.props.children.toUpperCase()}
+            {this.props.children}
           </SemiBoldText>
         </View>
       </RectButton>
@@ -344,8 +347,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  drawerButtonText: {
-    color: '#fff',
+  drawerButtonText: {//Color del la letra
+    color: 'black',
     fontSize: FontSizes.normalButton,
     padding: 10,
   },
@@ -358,7 +361,6 @@ const styles = StyleSheet.create({
 export default StackNavigator(
   {
     Primary: { screen: DrawerNavigation },
-    Details: { screen: Screens.Details },
   },
   {
     ...DefaultStackConfig,

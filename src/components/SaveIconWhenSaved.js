@@ -14,7 +14,7 @@ export default class SaveIconWhenSaved extends React.Component {
     const icon = (
       <Ionicons
         name={Icons.favoriteActive}
-        color={Colors.green}
+        color={Colors.azul}
         style={[{ backgroundColor: 'transparent' }, this.props.style]}
       />
     );
