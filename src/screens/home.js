@@ -9,6 +9,7 @@ import {
   ScrollView,
   StyleSheet,
   View,
+  FlatList,
 } from 'react-native';
 import { Asset, LinearGradient, WebBrowser, Video } from 'expo';
 import { NavigationActions } from 'react-navigation';
@@ -21,6 +22,9 @@ import MenuButton from '../components/MenuButton';
 import VideoBackground from '../components/VideoBackground';
 import { BoldText, SemiBoldText } from '../components/StyledText';
 import { Colors, FontSizes, Layout } from '../constants';
+
+import { findRandomTalk, findNextTalksAfterDate } from '../data';
+import CardTotal from '../components/CardTotal';
 
 class Home extends React.Component {
   state = {
@@ -102,6 +106,7 @@ class Home extends React.Component {
 class DeferredHomeContent extends React.Component {
   state = {
     ready: Platform.OS === 'android' ? false : true,
+    nextTalks:findNextTalksAfterDate(),
   };
 
   componentDidMount() {
@@ -115,12 +120,28 @@ class DeferredHomeContent extends React.Component {
   }
 
   render() {
-    if (!this.state.ready) {
+    const { nextTalks } = this.state;
+    if (!this.state.ready ) {
       return null;
     }
     return (
-      <AnimatableView animation="fadeIn" useNativeDriver duration={40000}> 
+      <AnimatableView animation="fadeIn" useNativeDriver duration={8000}> 
         <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
+        <FlatList style={{margin:5}}
+          data={nextTalks}
+          numColumns={2}
+          keyExtractor={(item, index) => item.dateTime }
+          renderItem={(talk) => 
+            <View style={{ flex: 1, margin: 5 , height: 130}} >
+              <CardTotal
+                key={talk.item.title}
+                talk={talk.item}
+                style={{ marginTop: 10, marginBottom: 10 }}
+              />
+            </View>
+          }
+        />
+  
         </View> 
       </AnimatableView>
     );

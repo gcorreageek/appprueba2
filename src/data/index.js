@@ -52,6 +52,7 @@ export function talkToDateTime(talk) {
 // oh my lol
 export function findNextTalksAfterDate(date = new Date(), allTalks = Talks) {
   date = moment(date);
+  return allTalks.slice(0, 10);
   let sortedMatches = _.chain(allTalks)
     .filter(talk => talk.dateTime.isAfter(date))
     .sortBy(talk => talk.dateTime.unix())
