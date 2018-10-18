@@ -1,27 +1,29 @@
 {
   "expo": {
     "name": "CyberApp",
-    "description": "Proyecto AppCyber, Cyber Search",
+    "description": "Oficial app cybersearch",
     "slug": "app",
     "privacy": "public",
-    "sdkVersion": "30.0.0",
-    "platforms": ["ios", "android"],
     "version": "1.0.0",
-    "orientation": "portrait",
+    "primaryColor": "#ffffff",
     "icon": "./src/assets/icon.png",
+    "orientation": "portrait",
+    "sdkVersion": "25.0.0",
     "splash": {
       "image": "./src/assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "updates": {
-      "fallbackToCacheTimeout": 0
+    "android": {
+      "package": "pe.com.cybersec.app",
+      "icon": "./src/assets/icon.png",
+      "versionCode": 3,
+      "permissions": []
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "pe.com.cybersec.app",
+      "supportsTablet": true,
+      "loadJSInBackgroundExperimental": true
     }
   }
 }
