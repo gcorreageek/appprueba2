@@ -49,6 +49,13 @@ export function talkToDateTime(talk) {
   return moment(`${date} ${startTime} ${ampm} -0600`, 'YYYY-MM-DD HH:mm a Z');
 }
 
+export function findTotales(){
+  return [
+  {id:1,image:1,titulo:'Medios',subtitulo:'140 totales'},
+  {id:2,image:2,titulo:'Documentos',subtitulo:'3000000 totales'},
+  {id:3,image:0,titulo:'Expedientes',subtitulo:'109 totales'},
+  {id:4,image:3,titulo:'Usuarios',subtitulo:'257 totales'}]
+}
 // oh my lol
 export function findNextTalksAfterDate(date = new Date(), allTalks = Talks) {
   date = moment(date);

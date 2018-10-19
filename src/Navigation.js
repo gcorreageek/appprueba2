@@ -93,7 +93,6 @@ const PerfilUsuarioNavigation = StackNavigator(
   },
   DefaultStackConfig
 );
-
 const DrawerRouteConfig = {
   Home: { screen: Screens.Home },
   MetadataSimple: { screen: MetadataSimpleNavigation },
@@ -270,18 +269,12 @@ class DrawerView extends React.Component {
     return (
       <View style={styles.drawerContainer}>
         <View style={styles.drawerHeader}>
-          {/* <Image
-            source={require('./assets/hero.png')}
+          <Image
+            source={require('./assets/team2.jpg')}
             style={{
               height: 140 + Layout.notchHeight,
               width: DRAWER_WIDTH,
               resizeMode: 'cover',
-            }}
-          /> */}
-          <View
-            style={{
-              height: 140 + Layout.notchHeight,
-              width: DRAWER_WIDTH,
             }}
           />
           <View
@@ -320,6 +313,7 @@ class DrawerView extends React.Component {
             { route: 'ExpedienteDigital', title: 'Expediente Digital' },
             { route: 'DatosEstadisticos', title: 'Datos Estadisticos' },
             { route: 'PerfilUsuario', title: 'Perfil Usuario' },
+            { route: 'Sponsors', title: 'Sponsors' },
 
           ])}
         </View>
