@@ -10,6 +10,7 @@ import { DrawerLayoutAndroid, BorderlessButton, RectButton, } from 'react-native
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import ResourceSavingContainer from 'react-native-resource-saving-container';
 import hoistStatics from 'hoist-non-react-statics';
+import { Ionicons } from '@expo/vector-icons';
 
 import { Colors, FontSizes, Layout } from './constants';
 import Screens from './screens';
@@ -345,9 +346,7 @@ class DrawerButton extends React.Component {
       <RectButton
         onPress={this.props.onPress}
         style={{
-          backgroundColor: this.props.selected
-            ? 'rgba(90,90,90,0.1)'
-            : 'white',
+          backgroundColor: this.props.selected ? 'rgba(90,90,90,0.1)' : 'white',
         }}
       >
         <View
@@ -358,7 +357,11 @@ class DrawerButton extends React.Component {
             paddingHorizontal: 5,
           }}
         >
-          <SemiBoldText style={styles.drawerButtonText}>
+          <SemiBoldText style={
+            [ styles.drawerButtonText,
+              {color: this.props.selected ? '#1E90FF' : 'black'}
+            ]
+            }>
             {this.props.children}
           </SemiBoldText>
         </View>
