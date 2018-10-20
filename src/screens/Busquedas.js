@@ -9,9 +9,9 @@ import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import _ from 'lodash';
 
 
-export default class ExpedienteDigital extends React.Component {
+export default class Busquedas extends React.Component {
   static navigationOptions = {
-    title: 'Expediente Digital',
+    title: 'Busquedas',
     headerStyle: { backgroundColor: Colors.azul },
     headerTintColor: 'white',
     headerLeft: <MenuButton />,

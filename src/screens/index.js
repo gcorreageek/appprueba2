@@ -1,17 +1,13 @@
 import Home from './Home';
-import MetadataDetallada from './MetadataDetallada';
-import MetadataSimple from './MetadataSimple';
+import Busquedas from './Busquedas';
 import CargaDocumento from './CargaDocumento';
-import ExpedienteDigital from './ExpedienteDigital';
 import DatosEstadisticos from './DatosEstadisticos';
 import PerfilUsuario from './PerfilUsuario';
 
 export default {
   Home,
-  MetadataSimple,
-  MetadataDetallada,
+  Busquedas,
   CargaDocumento,
-  ExpedienteDigital,
   DatosEstadisticos,
   PerfilUsuario,
 };

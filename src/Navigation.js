@@ -45,22 +45,6 @@ const DefaultStackConfig = {
   },
 };
 
-const MetadataSimpleNavigation = StackNavigator(
-  {
-    SponsorList: {
-      screen: Screens.MetadataSimple,
-    },
-  },
-  DefaultStackConfig
-);
-const MetadataDetalladaNavigation = StackNavigator(
-  {
-    SponsorList: {
-      screen: Screens.MetadataDetallada,
-    },
-  },
-  DefaultStackConfig
-);
 const CargaDocumentoNavigation = StackNavigator(
   {
     SponsorList: {
@@ -69,10 +53,10 @@ const CargaDocumentoNavigation = StackNavigator(
   },
   DefaultStackConfig
 );
-const ExpedienteDigitalNavigation = StackNavigator(
+const BusquedasNavigation = StackNavigator(
   {
     SponsorList: {
-      screen: Screens.ExpedienteDigital,
+      screen: Screens.Busquedas,
     },
   },
   DefaultStackConfig
@@ -95,10 +79,8 @@ const PerfilUsuarioNavigation = StackNavigator(
 );
 const DrawerRouteConfig = {
   Home: { screen: Screens.Home },
-  MetadataSimple: { screen: MetadataSimpleNavigation },
-  MetadataDetallada: { screen: MetadataDetalladaNavigation },
   CargaDocumento: { screen: CargaDocumentoNavigation },
-  ExpedienteDigital: { screen: ExpedienteDigitalNavigation },
+  Busquedas: { screen: BusquedasNavigation },
   DatosEstadisticos: { screen: DatosEstadisticosNavigation },
   PerfilUsuario: { screen: PerfilUsuarioNavigation },
 };
@@ -307,13 +289,10 @@ class DrawerView extends React.Component {
           {/* make sure the buttons here are in the same order as in route config */}
           {this._renderButtons([
             { route: 'Home', title: 'Inicio' },
-            { route: 'MetadataSimple', title: 'M.Simple' },
-            { route: 'MetadataDetallada', title: 'M.Detallada' },
-            { route: 'CargaDocumento', title: 'Carga Documento' },
-            { route: 'ExpedienteDigital', title: 'Expediente Digital' },
+            { route: 'Busquedas', title: 'Busquedas' },
             { route: 'DatosEstadisticos', title: 'Datos Estadisticos' },
+            { route: 'CargaDocumento', title: 'Carga Documento' },
             { route: 'PerfilUsuario', title: 'Perfil Usuario' },
-            { route: 'Sponsors', title: 'Sponsors' },
 
           ])}
         </View>
