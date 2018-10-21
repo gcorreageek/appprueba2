@@ -359,7 +359,7 @@ class DrawerButton extends React.Component {
             name={this.props.icon}
             size={23}
             style={{  
-              color: this.props.selected ? '#1E90FF' : 'black',
+              color: this.props.selected ? '#1E90FF' : '#5F6368',
               marginTop: 12, 
             }}
           />
@@ -367,7 +367,7 @@ class DrawerButton extends React.Component {
             [ 
               styles.drawerButtonText,
               {
-                color: this.props.selected ? '#1E90FF' : 'black',
+                color: this.props.selected ? '#1E90FF' : '#5F6368',
                 marginLeft:30,
                 marginTop:-31,
               }
