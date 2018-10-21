@@ -3,6 +3,7 @@ import Busquedas from './Busquedas';
 import CargaDocumento from './CargaDocumento';
 import DatosEstadisticos from './DatosEstadisticos';
 import PerfilUsuario from './PerfilUsuario';
+import Login from './Login';
 
 export default {
   Home,
@@ -10,4 +11,5 @@ export default {
   CargaDocumento,
   DatosEstadisticos,
   PerfilUsuario,
+  Login,
 };

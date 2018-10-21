@@ -349,9 +349,7 @@ class DrawerButton extends React.Component {
         style={{
           backgroundColor: this.props.selected ? 'rgba(90,90,90,0.1)' : 'white',
           height: 50,
-          width: DRAWER_WIDTH,
-          // paddingLeft:40,
-          // marginTop:10,
+          width: DRAWER_WIDTH, 
           paddingLeft:30
         }}
       > 
@@ -398,9 +396,11 @@ const styles = StyleSheet.create({
 export default StackNavigator(
   {
     Primary: { screen: DrawerNavigation },
+    Login: { screen: Screens.Login },
   },
   {
     ...DefaultStackConfig,
     headerMode: 'none',
+    initialRouteName: 'Login',
   }
 );
