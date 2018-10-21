@@ -289,11 +289,11 @@ class DrawerView extends React.Component {
         <View style={styles.drawerButtons}>
           {/* make sure the buttons here are in the same order as in route config */}
           {this._renderButtons([
-            { route: 'Home', title: 'Inicio' },
-            { route: 'Busquedas', title: 'Busquedas' },
-            { route: 'DatosEstadisticos', title: 'Datos Estadisticos' },
-            { route: 'CargaDocumento', title: 'Carga Documento' },
-            { route: 'PerfilUsuario', title: 'Perfil Usuario' },
+            { route: 'Home', title: 'Inicio', icono: Platform.OS === 'ios' ? 'ios-home' : 'md-home' },
+            { route: 'Busquedas', title: 'Busquedas', icono: Platform.OS === 'ios' ? 'ios-search' : 'md-search' },
+            { route: 'DatosEstadisticos', title: 'Datos Estadisticos', icono: Platform.OS === 'ios' ? 'ios-stats' : 'md-stats' },
+            { route: 'CargaDocumento', title: 'Carga Documento', icono: Platform.OS === 'ios' ? 'ios-cloud-upload' : 'md-cloud-upload' },
+            { route: 'PerfilUsuario', title: 'Perfil Usuario', icono: Platform.OS === 'ios' ? 'ios-person' : 'md-person' },
 
           ])}
         </View>
@@ -309,6 +309,7 @@ class DrawerView extends React.Component {
         key={i}
         onPress={() => this._navigateToScreen(i)}
         selected={selectedIndex === i}
+        icon={config.icono}
       >
         {config.title}
       </DrawerButton>
@@ -347,24 +348,33 @@ class DrawerButton extends React.Component {
         onPress={this.props.onPress}
         style={{
           backgroundColor: this.props.selected ? 'rgba(90,90,90,0.1)' : 'white',
+          height: 50,
+          width: DRAWER_WIDTH,
+          // paddingLeft:40,
+          // marginTop:10,
+          paddingLeft:30
         }}
-      >
-        <View
-          style={{
-            height: 50,
-            width: DRAWER_WIDTH,
-            justifyContent: 'center',
-            paddingHorizontal: 5,
-          }}
-        >
+      > 
+          <Ionicons
+            name={this.props.icon}
+            size={23}
+            style={{  
+              color: this.props.selected ? '#1E90FF' : 'black',
+              marginTop: 12, 
+            }}
+          />
           <SemiBoldText style={
-            [ styles.drawerButtonText,
-              {color: this.props.selected ? '#1E90FF' : 'black'}
+            [ 
+              styles.drawerButtonText,
+              {
+                color: this.props.selected ? '#1E90FF' : 'black',
+                marginLeft:30,
+                marginTop:-31,
+              }
             ]
             }>
             {this.props.children}
-          </SemiBoldText>
-        </View>
+          </SemiBoldText> 
       </RectButton>
     );
   }
